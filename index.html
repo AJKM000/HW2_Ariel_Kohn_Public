@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW2 Ariel Kohn</title>
+  </head>
+  <body>
+    <script>
+      //part A
+      //task 1
+      const person = {
+        name: "Ariel Kohn",
+        age: 25,
+        isStudent: true,
+      };
+      console.log(person);
+
+      //task 2
+      console.log("Name:", person.name);
+      console.log("Age:", person.age);
+      console.log("Is Student:", person["isStudent"]);
+
+      //task 3
+      person.name = "Adi Azar";
+      console.log("New Name:", person.name);
+      person.hobby = "Plants";
+      console.log(person);
+
+      //task 4
+      const movie = {
+        title: "Avatar",
+        genre: "Action",
+      };
+      console.log(movie);
+      movie.releaseYear = 2009;
+      movie.isPopular = true;
+      movie.genre = "Super Action";
+      console.log("Updated movie object:", movie);
+
+      //task 5
+      const car = {
+        make: "VW",
+        model: "Golf",
+        year: 2017,
+        color: "white",
+      };
+      console.log("Car properties:");
+      for (let key of Object.keys(car)) {
+        console.log(`${key}: ${car[key]}`);
+      }
+      // task 6
+
+      const firstPerson = {
+        name: "Ariel Kohn",
+        age: 25,
+      };
+      const secondPerson = {
+        name: "Adi Azar",
+        age: 26,
+      };
+      function combinePeople(firstPerson, secondPerson) {
+        return {
+          "first person's name": firstPerson.name,
+          "first person's age": firstPerson.age,
+          "second person's name": secondPerson.name,
+          "second person's age": secondPerson.age,
+        };
+      }
+
+      const combinedObject = combinePeople(firstPerson, secondPerson);
+      console.log("Combined object:", combinedObject);
+
+      // task 7
+
+      function countProperties(obj) {
+        return Object.keys(obj).length;
+      }
+
+      console.log("Number of properties in movie:", countProperties(movie));
+      console.log("Number of properties in person:", countProperties(person));
+      console.log("Number of properties in car:", countProperties(car));
+      console.log(
+        "Number of properties in secondPerson:",
+        countProperties(secondPerson)
+      );
+
+      // task 8
+      console.log("Original person object:", person);
+      delete person.isStudent;
+      console.log("Updated person object (after deletion):", person);
+
+      // task 9
+      function hasProperty(obj, prop) {
+        return prop in obj;
+      }
+      console.log("Does 'make' exist in car?:", hasProperty(car, "make"));
+      console.log("Does 'price' exist in car?:", hasProperty(car, "price"));
+
+      //task 10
+      function updatePerson(person, key, value) {
+        person[key] = value;
+      }
+      console.log("Original person object:", person);
+
+      updatePerson(person, "age", 29);
+      console.log("After updating age:", person);
+
+      updatePerson(person, "city", "New York");
+      console.log("After adding city:", person);
+
+      //part B
+      //task 1
+      const fruits = ["Banana", "Cherry", "Apple", "Blueberry", "Mango"];
+      console.log("Fruits array:", fruits);
+      //task 2
+      console.log("First element:", fruits[0]);
+      console.log("Last element:", fruits[4]);
+      console.log("Third element:", fruits[2]);
+      //task 3
+      fruits.push("Fig");
+      console.log("After adding 'Fig' to the end:", fruits);
+      fruits.unshift("Grape");
+      console.log("After adding 'Grape' to the beginning:", fruits);
+      fruits.pop();
+      console.log("After removing the last element:", fruits);
+      //task 4
+      for (let i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]);
+      }
+
+      for (let fruit of fruits) {
+        console.log(fruit);
+      }
+
+      //task 5
+      const numberOfFruits = fruits.length;
+      console.log(
+        "Total number of elements in the fruits array:",
+        numberOfFruits
+      );
+      //task 6
+
+      function isInArray(array, element) {
+        for (let fruit of fruits) {
+          if (fruit === element) return true;
+        }
+        return false;
+      }
+
+      console.log("Is 'Apple' in the array?:", isInArray(fruits, "Apple")); //בדיקה
+      console.log("Is 'Ariel' in the array?:", isInArray(fruits, "Ariel")); //בדיקה
+
+      //task 7
+      const sortedFruits = fruits.slice().sort(); //-slice =עותק , sort= מיון
+      console.log("Sorted array:", sortedFruits);
+      console.log("Original array:", fruits);
+      //task 8
+      const reversedFruits = fruits.slice().reverse();
+      console.log("Reversed array:", reversedFruits);
+      console.log("Original array:", fruits);
+      //task 9
+      const Numbers = [2, 3, 4, 6, 56, 7, 8, 4, 5, 78];
+      function filterEvenNumbers(array) {
+        return array.filter((num) => num % 2 === 0);
+      }
+      const evenNumbers = filterEvenNumbers(Numbers);
+      console.log("Original numbers array:", Numbers);
+      console.log("Filtered even numbers:", evenNumbers);
+      //task 10
+      const vegetables = ["Carrot", "Tomato", "Cucumber"];
+      const groceries = fruits.concat(vegetables);
+      console.log("Fruits array:", fruits);
+      console.log("Vegetables array:", vegetables);
+      console.log("Combined groceries array:", groceries);
+    </script>
+  </body>
+</html>
